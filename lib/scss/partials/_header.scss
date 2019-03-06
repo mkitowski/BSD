@@ -1,0 +1,43 @@
+header {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  color: $ligh2;
+  .bck {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background: url("/pic/bck1.jpeg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    overflow: hidden;
+    -webkit-animation: kenburns-top 30s ease-out infinite both;
+    animation: kenburns-top 30s ease-out infinite both;
+    .shadow {
+      background: black;
+      opacity: .4;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+    }
+  }
+  .top_bar {
+    width: 100%;
+    height: 3rem;
+    background: $bar;
+    transform: translateY(2rem);
+    display: flex;
+
+    .logo {
+      background: url("./../../pic/bck1.jpeg") no-repeat center center fixed;
+      background-size: contain;
+      height: auto;
+      width: 3rem;
+      z-index: 3;
+    }
+
+  }
+}

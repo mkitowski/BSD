@@ -8,7 +8,7 @@ module.exports = {
     },
     mode: 'development',
     watch: true,
-    
+
     module: {
         rules: [
             {
@@ -28,7 +28,25 @@ module.exports = {
             {
                 test: /\.scss$/,
                 use: ['style-loader', 'css-loader', 'sass-loader']
+            },
+            {
+                test: /\.(png|jpg|jpeg)$/,
+                loader: 'url-loader',
+                options: {
+                    name: '../../pic/[name].[ext]'
+
+                },
+            },
+            {
+                test: /\.(png|jpg|jpeg)$/,
+                loader: 'file-loader?name=[name].[ext]',
+                options: {
+                    name: '../../pic/[name].[ext]'
+
+
+                },
             }
         ]
-    }
+    },
+
 }
