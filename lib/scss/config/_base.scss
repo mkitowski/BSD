@@ -6,4 +6,15 @@
 
 body {
   font-size: 16px;
+  overflow-x: hidden;
+  font-family: 'Libre Franklin', sans-serif;
+  //font-family: 'Nunito', sans-serif;
+}
+
+h2 {
+  font-size: 2.2rem;
+  font-weight: 900;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: $second;
 }
