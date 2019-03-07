@@ -116,7 +116,7 @@ eval("\nvar content = __webpack_require__(/*! !../../node_modules/css-loader/dis
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Imports\nvar urlEscape = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/url-escape.js */ \"./node_modules/css-loader/dist/runtime/url-escape.js\");\nvar ___CSS_LOADER_URL___0___ = urlEscape(__webpack_require__(/*! ./../../pic/bck1.jpeg */ \"./pic/bck1.jpeg\"));\n\n// Module\nexports.push([module.i, \"* {\\n  margin: 0;\\n  padding: 0;\\n  box-sizing: border-box; }\\n\\nbody {\\n  font-size: 16px; }\\n\\n@-webkit-keyframes kenburns-top {\\n  0% {\\n    -webkit-transform: scale(1) translate(0, 0);\\n    transform: scale(1) translate(0, 0);\\n    -webkit-transform-origin: right bottom;\\n    transform-origin: right bottom; }\\n  100% {\\n    -webkit-transform: scale(1.25);\\n    transform: scale(1.25);\\n    -webkit-transform-origin: right bottom;\\n    transform-origin: right bottom; } }\\n\\n@keyframes kenburns-top {\\n  0% {\\n    -webkit-transform: scale(1);\\n    transform: scale(1);\\n    -webkit-transform-origin: right bottom;\\n    transform-origin: right bottom; }\\n  100% {\\n    -webkit-transform: scale(1.25);\\n    transform: scale(1.25);\\n    -webkit-transform-origin: right bottom;\\n    transform-origin: right bottom; } }\\n\\nheader {\\n  width: 100vw;\\n  height: 100vh;\\n  overflow: hidden;\\n  color: #fff; }\\n  header .bck {\\n    position: absolute;\\n    z-index: -1;\\n    width: 100%;\\n    height: 100%;\\n    background: url(\\\"/pic/bck1.jpeg\\\") no-repeat center center fixed;\\n    -webkit-background-size: cover;\\n    -moz-background-size: cover;\\n    -o-background-size: cover;\\n    background-size: cover;\\n    overflow: hidden;\\n    -webkit-animation: kenburns-top 30s ease-out infinite both;\\n    animation: kenburns-top 30s ease-out infinite both; }\\n    header .bck .shadow {\\n      background: black;\\n      opacity: .4;\\n      width: 100%;\\n      height: 100%;\\n      position: absolute; }\\n  header .top_bar {\\n    width: 100%;\\n    height: 3rem;\\n    background: rgba(45, 45, 45, 0.5);\\n    transform: translateY(2rem);\\n    display: flex; }\\n    header .top_bar .logo {\\n      background: url(\" + ___CSS_LOADER_URL___0___ + \") no-repeat center center fixed;\\n      background-size: contain;\\n      height: auto;\\n      width: 3rem;\\n      z-index: 3; }\\n\", \"\"]);\n\n\n\n//# sourceURL=webpack:///./lib/scss/main.scss?./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/lib/loader.js");
+eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Imports\nvar urlEscape = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/url-escape.js */ \"./node_modules/css-loader/dist/runtime/url-escape.js\");\nvar ___CSS_LOADER_URL___0___ = urlEscape(__webpack_require__(/*! ../../pic/BSD.png */ \"./pic/BSD.png\"));\nvar ___CSS_LOADER_URL___1___ = urlEscape(__webpack_require__(/*! ../../pic/bck1.jpeg */ \"./pic/bck1.jpeg\"));\n\n// Module\nexports.push([module.i, \"* {\\n  margin: 0;\\n  padding: 0;\\n  box-sizing: border-box; }\\n\\nbody {\\n  font-size: 16px; }\\n\\n@-webkit-keyframes kenburns-top {\\n  0% {\\n    -webkit-transform: scale(1) translate(0, 0);\\n    transform: scale(1) translate(0, 0);\\n    -webkit-transform-origin: right bottom;\\n    transform-origin: right bottom; }\\n  100% {\\n    -webkit-transform: scale(1.25);\\n    transform: scale(1.25);\\n    -webkit-transform-origin: right bottom;\\n    transform-origin: right bottom; } }\\n\\n@keyframes kenburns-top {\\n  0% {\\n    -webkit-transform: scale(1);\\n    transform: scale(1);\\n    -webkit-transform-origin: right bottom;\\n    transform-origin: right bottom; }\\n  100% {\\n    -webkit-transform: scale(1.25);\\n    transform: scale(1.25);\\n    -webkit-transform-origin: right bottom;\\n    transform-origin: right bottom; } }\\n\\nheader {\\n  width: 100vw;\\n  height: 100vh;\\n  overflow: hidden;\\n  color: #fff; }\\n  header .bck {\\n    position: absolute;\\n    z-index: -1;\\n    width: 100%;\\n    height: 100%;\\n    background: no-repeat center center fixed;\\n    -webkit-background-size: cover;\\n    -moz-background-size: cover;\\n    -o-background-size: cover;\\n    background-size: cover;\\n    overflow: hidden;\\n    -webkit-animation: kenburns-top 30s ease-out infinite both;\\n    animation: kenburns-top 30s ease-out infinite both; }\\n    header .bck .shadow {\\n      background: black;\\n      opacity: .4;\\n      width: 100%;\\n      height: 100%;\\n      position: absolute; }\\n  header .top_bar {\\n    width: 100%;\\n    height: 6rem;\\n    background: rgba(45, 45, 45, 0.5);\\n    transform: translateY(2rem);\\n    display: flex; }\\n    header .top_bar .logo {\\n      background: url(\" + ___CSS_LOADER_URL___0___ + \") no-repeat;\\n      background-size: cover;\\n      height: 6rem;\\n      width: 6rem; }\\n    header .top_bar nav ul {\\n      display: flex;\\n      list-style: none; }\\n\\n.pic {\\n  width: 100px;\\n  height: 100px;\\n  background: url(\" + ___CSS_LOADER_URL___1___ + \") no-repeat;\\n  background-size: contain; }\\n\", \"\"]);\n\n\n\n//# sourceURL=webpack:///./lib/scss/main.scss?./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/lib/loader.js");
 
 /***/ }),
 
@@ -166,6 +166,17 @@ eval("\n/**\n * When source maps are enabled, `style-loader` uses a link element
 
 /***/ }),
 
+/***/ "./pic/BSD.png":
+/*!*********************!*\
+  !*** ./pic/BSD.png ***!
+  \*********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"./pic/BSD.png\";\n\n//# sourceURL=webpack:///./pic/BSD.png?");
+
+/***/ }),
+
 /***/ "./pic/bck1.jpeg":
 /*!***********************!*\
   !*** ./pic/bck1.jpeg ***!
@@ -173,7 +184,7 @@ eval("\n/**\n * When source maps are enabled, `style-loader` uses a link element
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = \"data:image/jpeg;base64,bW9kdWxlLmV4cG9ydHMgPSBfX3dlYnBhY2tfcHVibGljX3BhdGhfXyArICIuLi8uLi9waWMvYmNrMS5qcGVnIjs=\"\n\n//# sourceURL=webpack:///./pic/bck1.jpeg?");
+eval("module.exports = \"./pic/bck1.jpeg\";\n\n//# sourceURL=webpack:///./pic/bck1.jpeg?");
 
 /***/ })
 
