@@ -1,6 +1,14 @@
-.pic {
-    width: 100px;
-    height: 100px;
-    background: url('../../pic/bck1.jpeg') no-repeat;
-    background-size: contain;
+#module3 {
+    //background-color: $ligh1;
+    .about-section{
+        font-size: 1.4rem;
+        @include narrow;
+        @include list;
+
+        p {
+            margin: 1rem 0;
+        }
+
+
+    }
 }
