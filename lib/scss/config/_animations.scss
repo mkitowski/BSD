@@ -31,3 +31,38 @@
     transform-origin: right bottom;
   }
 }
+
+
+@-webkit-keyframes swing-in-top-fwd {
+  0% {
+    -webkit-transform: rotateX(-100deg) translateY(6rem);
+            transform: rotateX(-100deg) translateY(6rem);
+    -webkit-transform-origin: top;
+            transform-origin: top;
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotateX(0deg) translateY(6rem);
+            transform: rotateX(0deg) translateY(6rem);
+    -webkit-transform-origin: top;
+            transform-origin: top;
+    opacity: 1;
+  }
+}
+@keyframes swing-in-top-fwd {
+  0% {
+    -webkit-transform: rotateX(-100deg) translateY(6rem);
+            transform: rotateX(-100deg) translateY(6rem);
+    -webkit-transform-origin: top;
+            transform-origin: top;
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotateX(0deg) translateY(6rem);
+            transform: rotateX(0deg) translateY(6rem);
+    -webkit-transform-origin: top;
+            transform-origin: top;
+    opacity: 1;
+  }
+}
+

@@ -37,4 +37,39 @@
     }
 
   }
+
+}
+.module2 {
+max-width: 1024px;
+    margin: 2rem auto;
+  .clients {
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 1rem;
+    .kl{
+      width: 8rem;
+      height: 8rem;
+      margin: 1rem;
+      padding: 1rem;
+      @for $i from 1 to 12 {
+      &:nth-child(#{$i}) {
+        background: url("../../pic/kl#{$i}.png") center center no-repeat;
+      background-size: contain;
+      }
+      &:hover {
+        border-radius: 1rem;
+        border-right: 3px solid lightgray;
+        border-bottom: 3px solid lightgray;
+        border-top: 1px solid lightgray;
+        border-left: 1px solid lightgray;
+        transform: translate(-3px, -3px);
+        transition: transform .5s ease;
+      }
+    }
+
+    }
+
+  }
 }

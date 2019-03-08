@@ -94,7 +94,19 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\n__webpack_require__(/*! ./../scss/main.scss */ \"./lib/scss/main.scss\");\n\nvar _background = __webpack_require__(/*! ./partials/background */ \"./lib/js/partials/background.js\");\n\nvar _database = __webpack_require__(/*! ./partials/database */ \"./lib/js/partials/database.js\");\n\nvar _scroll = __webpack_require__(/*! ./events/scroll */ \"./lib/js/events/scroll.js\");\n\nvar config = {\n\tapiKey: \"AIzaSyC39JnnA7Pd3-DfwH2n4zFe2H7NMV1UyhM\",\n\tauthDomain: \"bsd-mk.firebaseapp.com\",\n\tdatabaseURL: \"https://bsd-mk.firebaseio.com\",\n\tprojectId: \"bsd-mk\",\n\tstorageBucket: \"bsd-mk.appspot.com\",\n\tmessagingSenderId: \"699729683196\"\n};\nfirebase.initializeApp(config);\n\nvar path = \"BSD/PL\";\nvar database = new _database.Db(path);\n\ndatabase.getText().then(function (e) {\n\tfor (var i in e) {\n\t\tdocument.querySelector(\"#\" + i).innerHTML = e[i];\n\t}\n});\n\nvar background = new _background.Background();\n\nvar bar = document.querySelector('.top_bar');\nnew _scroll.Scroll(bar);\n\n//# sourceURL=webpack:///./lib/js/app.js?");
+eval("\n\n__webpack_require__(/*! ./../scss/main.scss */ \"./lib/scss/main.scss\");\n\nvar _background = __webpack_require__(/*! ./partials/background */ \"./lib/js/partials/background.js\");\n\nvar _database = __webpack_require__(/*! ./partials/database */ \"./lib/js/partials/database.js\");\n\nvar _scroll = __webpack_require__(/*! ./events/scroll */ \"./lib/js/events/scroll.js\");\n\nvar _position = __webpack_require__(/*! ./events/position */ \"./lib/js/events/position.js\");\n\nvar config = {\n\tapiKey: \"AIzaSyC39JnnA7Pd3-DfwH2n4zFe2H7NMV1UyhM\",\n\tauthDomain: \"bsd-mk.firebaseapp.com\",\n\tdatabaseURL: \"https://bsd-mk.firebaseio.com\",\n\tprojectId: \"bsd-mk\",\n\tstorageBucket: \"bsd-mk.appspot.com\",\n\tmessagingSenderId: \"699729683196\"\n};\nfirebase.initializeApp(config);\n\nvar path = \"BSD/PL\";\nvar database = new _database.Db(path);\n\ndatabase.getText().then(function (e) {\n\tfor (var i in e) {\n\t\tdocument.querySelector(\"#\" + i).innerHTML = e[i];\n\t}\n});\n\nvar background = new _background.Background();\n\nvar bar = document.querySelector('.top_bar');\nvar start = document.querySelector('#module1');\nnew _scroll.Scroll(bar);\nnew _position.Position(start);\n\n//# sourceURL=webpack:///./lib/js/app.js?");
+
+/***/ }),
+
+/***/ "./lib/js/events/position.js":
+/*!***********************************!*\
+  !*** ./lib/js/events/position.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\n\nvar _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nvar Position = function () {\n    function Position(element) {\n        _classCallCheck(this, Position);\n\n        this.element = element;\n        this.start();\n    }\n\n    _createClass(Position, [{\n        key: 'start',\n        value: function start() {\n            var _this = this;\n\n            document.querySelector('#start').addEventListener('click', function () {\n                window.scrollTo({\n                    'behavior': 'smooth',\n                    'left': 0,\n                    'top': _this.element.offsetTop - 96\n                });\n            });\n        }\n    }]);\n\n    return Position;\n}();\n\nexports.Position = Position;\n\n//# sourceURL=webpack:///./lib/js/events/position.js?");
 
 /***/ }),
 
@@ -106,7 +118,7 @@ eval("\n\n__webpack_require__(/*! ./../scss/main.scss */ \"./lib/scss/main.scss\
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\n\nvar _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nvar Scroll = function () {\n\tfunction Scroll(element) {\n\t\t_classCallCheck(this, Scroll);\n\n\t\tthis.element = element;\n\t\tthis.listen();\n\t}\n\n\t_createClass(Scroll, [{\n\t\tkey: 'listen',\n\t\tvalue: function listen() {\n\t\t\tvar _this = this;\n\n\t\t\twindow.addEventListener('scroll', function (e) {\n\t\t\t\t// console.log(window.pageYOffset);\n\t\t\t\tif (window.pageYOffset >= 35) {\n\t\t\t\t\t_this.element.classList.add('fixed');\n\t\t\t\t} else {\n\t\t\t\t\t_this.element.classList.remove('fixed');\n\t\t\t\t}\n\t\t\t\tif (window.pageYOffset >= 625) {\n\t\t\t\t\t_this.element.classList.add('solid');\n\t\t\t\t} else {\n\t\t\t\t\t_this.element.classList.remove('solid');\n\t\t\t\t}\n\t\t\t});\n\t\t}\n\t}]);\n\n\treturn Scroll;\n}();\n\nexports.Scroll = Scroll;\n\n//# sourceURL=webpack:///./lib/js/events/scroll.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\n\nvar _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nvar Scroll = function () {\n\tfunction Scroll(element) {\n\t\t_classCallCheck(this, Scroll);\n\n\t\tthis.element = element;\n\t\tthis.listen();\n\t}\n\n\t_createClass(Scroll, [{\n\t\tkey: 'listen',\n\t\tvalue: function listen() {\n\t\t\tvar _this = this;\n\n\t\t\twindow.addEventListener('scroll', function (e) {\n\t\t\t\t// console.log(window);\n\t\t\t\tif (window.pageYOffset >= 100) {\n\t\t\t\t\t_this.element.classList.add('fixed');\n\t\t\t\t} else {\n\t\t\t\t\t_this.element.classList.remove('fixed');\n\t\t\t\t}\n\t\t\t\tif (window.pageYOffset >= window.innerHeight - 48) {\n\t\t\t\t\t_this.element.classList.add('solid');\n\t\t\t\t} else {\n\t\t\t\t\t_this.element.classList.remove('solid');\n\t\t\t\t}\n\t\t\t\t_this.menuactive();\n\t\t\t});\n\t\t}\n\t}, {\n\t\tkey: 'menuactive',\n\t\tvalue: function menuactive() {\n\t\t\tvar a = document.querySelector('#start');\n\t\t\tif (window.pageYOffset >= a.offsetHeight + window.innerHeight - 96) {\n\t\t\t\ta.classList.add('active');\n\t\t\t} else {\n\t\t\t\ta.classList.remove('active');\n\t\t\t}\n\t\t}\n\t}]);\n\n\treturn Scroll;\n}();\n\nexports.Scroll = Scroll;\n\n//# sourceURL=webpack:///./lib/js/events/scroll.js?");
 
 /***/ }),
 
@@ -152,7 +164,7 @@ eval("\nvar content = __webpack_require__(/*! !../../node_modules/css-loader/dis
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Imports\nexports.push([module.i, \"@import url(https://fonts.googleapis.com/css?family=Libre+Franklin|Nunito);\", \"\"]);\nvar urlEscape = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/url-escape.js */ \"./node_modules/css-loader/dist/runtime/url-escape.js\");\nvar ___CSS_LOADER_URL___0___ = urlEscape(__webpack_require__(/*! ../../pic/BSD.png */ \"./pic/BSD.png\"));\nvar ___CSS_LOADER_URL___1___ = urlEscape(__webpack_require__(/*! ../../pic/bck1.jpeg */ \"./pic/bck1.jpeg\"));\n\n// Module\nexports.push([module.i, \"@-webkit-keyframes kenburns-top {\\n  0% {\\n    -webkit-transform: scale(1) translate(0, 0);\\n    transform: scale(1) translate(0, 0);\\n    -webkit-transform-origin: 84% 84%;\\n    transform-origin: 84% 84%; }\\n  100% {\\n    -webkit-transform: scale(1.25);\\n    transform: scale(1.25);\\n    -webkit-transform-origin: right bottom;\\n    transform-origin: right bottom; } }\\n\\n@keyframes kenburns-top {\\n  0% {\\n    -webkit-transform: scale(1);\\n    transform: scale(1);\\n    -webkit-transform-origin: 84% 84%;\\n    transform-origin: 84% 84%; }\\n  100% {\\n    -webkit-transform: scale(1.25);\\n    transform: scale(1.25);\\n    -webkit-transform-origin: right bottom;\\n    transform-origin: right bottom; } }\\n\\n* {\\n  margin: 0;\\n  padding: 0;\\n  box-sizing: border-box; }\\n\\nbody {\\n  font-size: 16px;\\n  overflow-x: hidden;\\n  font-family: 'Libre Franklin', sans-serif; }\\n\\nh2 {\\n  font-size: 2.2rem;\\n  font-weight: 900;\\n  margin-bottom: 1rem;\\n  text-align: center;\\n  color: #77E66A; }\\n\\nheader {\\n  width: 100vw;\\n  height: 105vh;\\n  overflow: hidden;\\n  color: #fff; }\\n  header .bck {\\n    position: absolute;\\n    z-index: -1;\\n    width: 100%;\\n    height: 100%;\\n    background: no-repeat center center fixed;\\n    -webkit-background-size: cover;\\n    -moz-background-size: cover;\\n    -o-background-size: cover;\\n    background-size: cover;\\n    overflow: hidden;\\n    -webkit-animation: kenburns-top 30s ease-out infinite both;\\n    animation: kenburns-top 30s ease-out infinite both; }\\n    header .bck .shadow {\\n      background: black;\\n      opacity: .4;\\n      width: 100%;\\n      height: 100%;\\n      position: absolute; }\\n  header .top_bar {\\n    width: 100vw;\\n    background-color: rgba(45, 45, 45, 0.5);\\n    transform: translateY(6rem);\\n    text-align: center;\\n    padding: 1rem;\\n    display: flex;\\n    align-items: center;\\n    transition: background-color .5s ease; }\\n    header .top_bar .logo {\\n      background: url(\" + ___CSS_LOADER_URL___0___ + \") no-repeat;\\n      background-size: cover;\\n      height: 12rem;\\n      width: 12rem;\\n      transition: height .3s ease-out, width .3s ease-out; }\\n    header .top_bar nav {\\n      text-align: left;\\n      width: 80%;\\n      height: 100%;\\n      margin: 0 auto; }\\n      header .top_bar nav .title {\\n        max-height: 2rem;\\n        padding-bottom: 1rem;\\n        font-size: 1.4rem;\\n        color: #77E66A;\\n        transition: opacity .3s ease-out, max-height .3s ease-out; }\\n      header .top_bar nav ul {\\n        font-family: 'Nunito', sans-serif;\\n        display: flex;\\n        list-style: none;\\n        font-size: 1.4rem;\\n        font-weight: 900;\\n        cursor: pointer; }\\n        header .top_bar nav ul li {\\n          margin-right: 1rem;\\n          transition: color .3s ease-out, transform .3s ease-out;\\n          padding: .5rem; }\\n          header .top_bar nav ul li:hover {\\n            color: #77E66A;\\n            transform: scale(1.2);\\n            transition: color .3s ease-in, transform .3s ease-in; }\\n  header .fixed {\\n    position: fixed;\\n    transform: translateY(0); }\\n    header .fixed .logo {\\n      height: 3rem;\\n      width: 3rem;\\n      transition: height .3s ease-in, width .3s ease-in; }\\n    header .fixed .title {\\n      max-height: 0;\\n      line-height: 0;\\n      opacity: 0;\\n      transition: opacity .3s ease-in, max-height .3s ease-in; }\\n  header .solid {\\n    background-color: #2D2D2D; }\\n\\n#module1 {\\n  max-width: 1024px;\\n  margin: 2rem auto;\\n  color: #2D2D2D; }\\n  #module1 .subtitle .italic {\\n    font-style: italic;\\n    font-size: 1.5rem;\\n    font-weight: 300; }\\n  #module1 .subtitle > div {\\n    font-size: 1.5rem;\\n    font-weight: 300; }\\n    #module1 .subtitle > div .bold {\\n      font-weight: 900; }\\n  #module1 .subtitle ul {\\n    margin: 1rem 0;\\n    list-style: none;\\n    font-size: 1.4rem; }\\n    #module1 .subtitle ul li {\\n      margin-left: 2rem;\\n      margin-bottom: 1rem; }\\n      #module1 .subtitle ul li:before {\\n        content: '';\\n        position: relative;\\n        width: 0;\\n        height: 0;\\n        border-top: 1rem solid #2D2D2D;\\n        border-left: 1rem solid transparent;\\n        top: 1.35rem;\\n        left: -1rem;\\n        z-index: -1; }\\n\\n.pic {\\n  width: 100px;\\n  height: 100px;\\n  background: url(\" + ___CSS_LOADER_URL___1___ + \") no-repeat;\\n  background-size: contain; }\\n\", \"\"]);\n\n\n\n//# sourceURL=webpack:///./lib/scss/main.scss?./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/lib/loader.js");
+eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Imports\nexports.push([module.i, \"@import url(https://fonts.googleapis.com/css?family=Libre+Franklin|Nunito);\", \"\"]);\nvar urlEscape = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/url-escape.js */ \"./node_modules/css-loader/dist/runtime/url-escape.js\");\nvar ___CSS_LOADER_URL___0___ = urlEscape(__webpack_require__(/*! ../../pic/BSD.png */ \"./pic/BSD.png\"));\nvar ___CSS_LOADER_URL___1___ = urlEscape(__webpack_require__(/*! ../../pic/kl1.png */ \"./pic/kl1.png\"));\nvar ___CSS_LOADER_URL___2___ = urlEscape(__webpack_require__(/*! ../../pic/kl2.png */ \"./pic/kl2.png\"));\nvar ___CSS_LOADER_URL___3___ = urlEscape(__webpack_require__(/*! ../../pic/kl3.png */ \"./pic/kl3.png\"));\nvar ___CSS_LOADER_URL___4___ = urlEscape(__webpack_require__(/*! ../../pic/kl4.png */ \"./pic/kl4.png\"));\nvar ___CSS_LOADER_URL___5___ = urlEscape(__webpack_require__(/*! ../../pic/kl5.png */ \"./pic/kl5.png\"));\nvar ___CSS_LOADER_URL___6___ = urlEscape(__webpack_require__(/*! ../../pic/kl6.png */ \"./pic/kl6.png\"));\nvar ___CSS_LOADER_URL___7___ = urlEscape(__webpack_require__(/*! ../../pic/kl7.png */ \"./pic/kl7.png\"));\nvar ___CSS_LOADER_URL___8___ = urlEscape(__webpack_require__(/*! ../../pic/kl8.png */ \"./pic/kl8.png\"));\nvar ___CSS_LOADER_URL___9___ = urlEscape(__webpack_require__(/*! ../../pic/kl9.png */ \"./pic/kl9.png\"));\nvar ___CSS_LOADER_URL___10___ = urlEscape(__webpack_require__(/*! ../../pic/kl10.png */ \"./pic/kl10.png\"));\nvar ___CSS_LOADER_URL___11___ = urlEscape(__webpack_require__(/*! ../../pic/kl11.png */ \"./pic/kl11.png\"));\nvar ___CSS_LOADER_URL___12___ = urlEscape(__webpack_require__(/*! ../../pic/bck1.jpeg */ \"./pic/bck1.jpeg\"));\n\n// Module\nexports.push([module.i, \"@-webkit-keyframes kenburns-top {\\n  0% {\\n    -webkit-transform: scale(1) translate(0, 0);\\n    transform: scale(1) translate(0, 0);\\n    -webkit-transform-origin: 84% 84%;\\n    transform-origin: 84% 84%; }\\n  100% {\\n    -webkit-transform: scale(1.25);\\n    transform: scale(1.25);\\n    -webkit-transform-origin: right bottom;\\n    transform-origin: right bottom; } }\\n\\n@keyframes kenburns-top {\\n  0% {\\n    -webkit-transform: scale(1);\\n    transform: scale(1);\\n    -webkit-transform-origin: 84% 84%;\\n    transform-origin: 84% 84%; }\\n  100% {\\n    -webkit-transform: scale(1.25);\\n    transform: scale(1.25);\\n    -webkit-transform-origin: right bottom;\\n    transform-origin: right bottom; } }\\n\\n@-webkit-keyframes swing-in-top-fwd {\\n  0% {\\n    -webkit-transform: rotateX(-100deg) translateY(6rem);\\n    transform: rotateX(-100deg) translateY(6rem);\\n    -webkit-transform-origin: top;\\n    transform-origin: top;\\n    opacity: 0; }\\n  100% {\\n    -webkit-transform: rotateX(0deg) translateY(6rem);\\n    transform: rotateX(0deg) translateY(6rem);\\n    -webkit-transform-origin: top;\\n    transform-origin: top;\\n    opacity: 1; } }\\n\\n@keyframes swing-in-top-fwd {\\n  0% {\\n    -webkit-transform: rotateX(-100deg) translateY(6rem);\\n    transform: rotateX(-100deg) translateY(6rem);\\n    -webkit-transform-origin: top;\\n    transform-origin: top;\\n    opacity: 0; }\\n  100% {\\n    -webkit-transform: rotateX(0deg) translateY(6rem);\\n    transform: rotateX(0deg) translateY(6rem);\\n    -webkit-transform-origin: top;\\n    transform-origin: top;\\n    opacity: 1; } }\\n\\n* {\\n  margin: 0;\\n  padding: 0;\\n  box-sizing: border-box; }\\n\\nbody {\\n  font-size: 16px;\\n  overflow-x: hidden;\\n  font-family: 'Libre Franklin', sans-serif; }\\n\\nh2 {\\n  font-size: 2.2rem;\\n  font-weight: 900;\\n  margin-bottom: 1rem;\\n  text-align: center;\\n  color: #77E66A; }\\n\\nheader {\\n  width: 100vw;\\n  height: 105vh;\\n  overflow: hidden;\\n  color: #fff; }\\n  header .bck {\\n    position: absolute;\\n    z-index: -1;\\n    width: 100%;\\n    height: 100%;\\n    background: no-repeat center center fixed;\\n    -webkit-background-size: cover;\\n    -moz-background-size: cover;\\n    -o-background-size: cover;\\n    background-size: cover;\\n    overflow: hidden;\\n    -webkit-animation: kenburns-top 30s ease-out infinite both;\\n    animation: kenburns-top 30s ease-out infinite both; }\\n    header .bck .shadow {\\n      background: black;\\n      opacity: .4;\\n      width: 100%;\\n      height: 100%;\\n      position: absolute; }\\n  header .top_bar {\\n    -webkit-animation: swing-in-top-fwd 2s cubic-bezier(0.175, 0.885, 0.32, 1.275);\\n    animation: swing-in-top-fwd 2s cubic-bezier(0.175, 0.885, 0.32, 1.275);\\n    width: 100vw;\\n    background-color: rgba(45, 45, 45, 0.5);\\n    transform: translateY(6rem);\\n    text-align: center;\\n    padding: 1rem;\\n    display: flex;\\n    align-items: center;\\n    transition: background-color .5s ease; }\\n    header .top_bar .logo {\\n      background: url(\" + ___CSS_LOADER_URL___0___ + \") no-repeat;\\n      background-size: cover;\\n      height: 12rem;\\n      width: 12rem;\\n      transition: height .3s ease-out, width .3s ease-out; }\\n    header .top_bar nav {\\n      text-align: left;\\n      width: 80%;\\n      height: 100%;\\n      margin: 0 auto; }\\n      header .top_bar nav .title {\\n        max-height: 2rem;\\n        padding-bottom: 1rem;\\n        font-size: 1.4rem;\\n        color: #77E66A;\\n        transition: opacity .3s ease-out, max-height .3s ease-out; }\\n      header .top_bar nav ul {\\n        font-family: 'Nunito', sans-serif;\\n        display: flex;\\n        list-style: none;\\n        font-size: 1.4rem;\\n        font-weight: 900;\\n        cursor: pointer; }\\n        header .top_bar nav ul .active {\\n          color: #77E66A;\\n          transform: scale(1.2); }\\n        header .top_bar nav ul li {\\n          margin-right: 1rem;\\n          transition: color .3s ease-out, transform .3s ease-out;\\n          padding: .5rem; }\\n          header .top_bar nav ul li:hover {\\n            color: #77E66A;\\n            transform: scale(1.2);\\n            transition: color .3s ease-in, transform .3s ease-in; }\\n  header .fixed {\\n    position: fixed;\\n    transform: translateY(0); }\\n    header .fixed .logo {\\n      height: 3rem;\\n      width: 3rem;\\n      transition: height .3s ease-in, width .3s ease-in; }\\n    header .fixed .title {\\n      max-height: 0;\\n      line-height: 0;\\n      opacity: 0;\\n      transition: opacity .3s ease-in, max-height .3s ease-in; }\\n  header .solid {\\n    background-color: #2D2D2D; }\\n\\n#module1 {\\n  max-width: 1024px;\\n  margin: 2rem auto;\\n  color: #2D2D2D; }\\n  #module1 .subtitle .italic {\\n    font-style: italic;\\n    font-size: 1.5rem;\\n    font-weight: 300; }\\n  #module1 .subtitle > div {\\n    font-size: 1.5rem;\\n    font-weight: 300; }\\n    #module1 .subtitle > div .bold {\\n      font-weight: 900; }\\n  #module1 .subtitle ul {\\n    margin: 1rem 0;\\n    list-style: none;\\n    font-size: 1.4rem; }\\n    #module1 .subtitle ul li {\\n      margin-left: 2rem;\\n      margin-bottom: 1rem; }\\n      #module1 .subtitle ul li:before {\\n        content: '';\\n        position: relative;\\n        width: 0;\\n        height: 0;\\n        border-top: 1rem solid #2D2D2D;\\n        border-left: 1rem solid transparent;\\n        top: 1.35rem;\\n        left: -1rem;\\n        z-index: -1; }\\n\\n.module2 {\\n  max-width: 1024px;\\n  margin: 2rem auto; }\\n  .module2 .clients {\\n    display: flex;\\n    flex-wrap: wrap;\\n    justify-content: center;\\n    padding: 1rem; }\\n    .module2 .clients .kl {\\n      width: 8rem;\\n      height: 8rem;\\n      margin: 1rem;\\n      padding: 1rem; }\\n      .module2 .clients .kl:nth-child(1) {\\n        background: url(\" + ___CSS_LOADER_URL___1___ + \") center center no-repeat;\\n        background-size: contain; }\\n      .module2 .clients .kl:hover {\\n        border-radius: 1rem;\\n        border-right: 3px solid lightgray;\\n        border-bottom: 3px solid lightgray;\\n        border-top: 1px solid lightgray;\\n        border-left: 1px solid lightgray;\\n        transform: translate(-3px, -3px);\\n        transition: transform .5s ease; }\\n      .module2 .clients .kl:nth-child(2) {\\n        background: url(\" + ___CSS_LOADER_URL___2___ + \") center center no-repeat;\\n        background-size: contain; }\\n      .module2 .clients .kl:hover {\\n        border-radius: 1rem;\\n        border-right: 3px solid lightgray;\\n        border-bottom: 3px solid lightgray;\\n        border-top: 1px solid lightgray;\\n        border-left: 1px solid lightgray;\\n        transform: translate(-3px, -3px);\\n        transition: transform .5s ease; }\\n      .module2 .clients .kl:nth-child(3) {\\n        background: url(\" + ___CSS_LOADER_URL___3___ + \") center center no-repeat;\\n        background-size: contain; }\\n      .module2 .clients .kl:hover {\\n        border-radius: 1rem;\\n        border-right: 3px solid lightgray;\\n        border-bottom: 3px solid lightgray;\\n        border-top: 1px solid lightgray;\\n        border-left: 1px solid lightgray;\\n        transform: translate(-3px, -3px);\\n        transition: transform .5s ease; }\\n      .module2 .clients .kl:nth-child(4) {\\n        background: url(\" + ___CSS_LOADER_URL___4___ + \") center center no-repeat;\\n        background-size: contain; }\\n      .module2 .clients .kl:hover {\\n        border-radius: 1rem;\\n        border-right: 3px solid lightgray;\\n        border-bottom: 3px solid lightgray;\\n        border-top: 1px solid lightgray;\\n        border-left: 1px solid lightgray;\\n        transform: translate(-3px, -3px);\\n        transition: transform .5s ease; }\\n      .module2 .clients .kl:nth-child(5) {\\n        background: url(\" + ___CSS_LOADER_URL___5___ + \") center center no-repeat;\\n        background-size: contain; }\\n      .module2 .clients .kl:hover {\\n        border-radius: 1rem;\\n        border-right: 3px solid lightgray;\\n        border-bottom: 3px solid lightgray;\\n        border-top: 1px solid lightgray;\\n        border-left: 1px solid lightgray;\\n        transform: translate(-3px, -3px);\\n        transition: transform .5s ease; }\\n      .module2 .clients .kl:nth-child(6) {\\n        background: url(\" + ___CSS_LOADER_URL___6___ + \") center center no-repeat;\\n        background-size: contain; }\\n      .module2 .clients .kl:hover {\\n        border-radius: 1rem;\\n        border-right: 3px solid lightgray;\\n        border-bottom: 3px solid lightgray;\\n        border-top: 1px solid lightgray;\\n        border-left: 1px solid lightgray;\\n        transform: translate(-3px, -3px);\\n        transition: transform .5s ease; }\\n      .module2 .clients .kl:nth-child(7) {\\n        background: url(\" + ___CSS_LOADER_URL___7___ + \") center center no-repeat;\\n        background-size: contain; }\\n      .module2 .clients .kl:hover {\\n        border-radius: 1rem;\\n        border-right: 3px solid lightgray;\\n        border-bottom: 3px solid lightgray;\\n        border-top: 1px solid lightgray;\\n        border-left: 1px solid lightgray;\\n        transform: translate(-3px, -3px);\\n        transition: transform .5s ease; }\\n      .module2 .clients .kl:nth-child(8) {\\n        background: url(\" + ___CSS_LOADER_URL___8___ + \") center center no-repeat;\\n        background-size: contain; }\\n      .module2 .clients .kl:hover {\\n        border-radius: 1rem;\\n        border-right: 3px solid lightgray;\\n        border-bottom: 3px solid lightgray;\\n        border-top: 1px solid lightgray;\\n        border-left: 1px solid lightgray;\\n        transform: translate(-3px, -3px);\\n        transition: transform .5s ease; }\\n      .module2 .clients .kl:nth-child(9) {\\n        background: url(\" + ___CSS_LOADER_URL___9___ + \") center center no-repeat;\\n        background-size: contain; }\\n      .module2 .clients .kl:hover {\\n        border-radius: 1rem;\\n        border-right: 3px solid lightgray;\\n        border-bottom: 3px solid lightgray;\\n        border-top: 1px solid lightgray;\\n        border-left: 1px solid lightgray;\\n        transform: translate(-3px, -3px);\\n        transition: transform .5s ease; }\\n      .module2 .clients .kl:nth-child(10) {\\n        background: url(\" + ___CSS_LOADER_URL___10___ + \") center center no-repeat;\\n        background-size: contain; }\\n      .module2 .clients .kl:hover {\\n        border-radius: 1rem;\\n        border-right: 3px solid lightgray;\\n        border-bottom: 3px solid lightgray;\\n        border-top: 1px solid lightgray;\\n        border-left: 1px solid lightgray;\\n        transform: translate(-3px, -3px);\\n        transition: transform .5s ease; }\\n      .module2 .clients .kl:nth-child(11) {\\n        background: url(\" + ___CSS_LOADER_URL___11___ + \") center center no-repeat;\\n        background-size: contain; }\\n      .module2 .clients .kl:hover {\\n        border-radius: 1rem;\\n        border-right: 3px solid lightgray;\\n        border-bottom: 3px solid lightgray;\\n        border-top: 1px solid lightgray;\\n        border-left: 1px solid lightgray;\\n        transform: translate(-3px, -3px);\\n        transition: transform .5s ease; }\\n\\n.pic {\\n  width: 100px;\\n  height: 100px;\\n  background: url(\" + ___CSS_LOADER_URL___12___ + \") no-repeat;\\n  background-size: contain; }\\n\", \"\"]);\n\n\n\n//# sourceURL=webpack:///./lib/scss/main.scss?./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/lib/loader.js");
 
 /***/ }),
 
@@ -221,6 +233,127 @@ eval("module.exports = \"./pic/BSD.png\";\n\n//# sourceURL=webpack:///./pic/BSD.
 /***/ (function(module, exports) {
 
 eval("module.exports = \"./pic/bck1.jpeg\";\n\n//# sourceURL=webpack:///./pic/bck1.jpeg?");
+
+/***/ }),
+
+/***/ "./pic/kl1.png":
+/*!*********************!*\
+  !*** ./pic/kl1.png ***!
+  \*********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"./pic/kl1.png\";\n\n//# sourceURL=webpack:///./pic/kl1.png?");
+
+/***/ }),
+
+/***/ "./pic/kl10.png":
+/*!**********************!*\
+  !*** ./pic/kl10.png ***!
+  \**********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"./pic/kl10.png\";\n\n//# sourceURL=webpack:///./pic/kl10.png?");
+
+/***/ }),
+
+/***/ "./pic/kl11.png":
+/*!**********************!*\
+  !*** ./pic/kl11.png ***!
+  \**********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"./pic/kl11.png\";\n\n//# sourceURL=webpack:///./pic/kl11.png?");
+
+/***/ }),
+
+/***/ "./pic/kl2.png":
+/*!*********************!*\
+  !*** ./pic/kl2.png ***!
+  \*********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"./pic/kl2.png\";\n\n//# sourceURL=webpack:///./pic/kl2.png?");
+
+/***/ }),
+
+/***/ "./pic/kl3.png":
+/*!*********************!*\
+  !*** ./pic/kl3.png ***!
+  \*********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"./pic/kl3.png\";\n\n//# sourceURL=webpack:///./pic/kl3.png?");
+
+/***/ }),
+
+/***/ "./pic/kl4.png":
+/*!*********************!*\
+  !*** ./pic/kl4.png ***!
+  \*********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"./pic/kl4.png\";\n\n//# sourceURL=webpack:///./pic/kl4.png?");
+
+/***/ }),
+
+/***/ "./pic/kl5.png":
+/*!*********************!*\
+  !*** ./pic/kl5.png ***!
+  \*********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"./pic/kl5.png\";\n\n//# sourceURL=webpack:///./pic/kl5.png?");
+
+/***/ }),
+
+/***/ "./pic/kl6.png":
+/*!*********************!*\
+  !*** ./pic/kl6.png ***!
+  \*********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"./pic/kl6.png\";\n\n//# sourceURL=webpack:///./pic/kl6.png?");
+
+/***/ }),
+
+/***/ "./pic/kl7.png":
+/*!*********************!*\
+  !*** ./pic/kl7.png ***!
+  \*********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"./pic/kl7.png\";\n\n//# sourceURL=webpack:///./pic/kl7.png?");
+
+/***/ }),
+
+/***/ "./pic/kl8.png":
+/*!*********************!*\
+  !*** ./pic/kl8.png ***!
+  \*********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"./pic/kl8.png\";\n\n//# sourceURL=webpack:///./pic/kl8.png?");
+
+/***/ }),
+
+/***/ "./pic/kl9.png":
+/*!*********************!*\
+  !*** ./pic/kl9.png ***!
+  \*********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"./pic/kl9.png\";\n\n//# sourceURL=webpack:///./pic/kl9.png?");
 
 /***/ })
 
