@@ -10,6 +10,8 @@ body {
   font-family: 'Libre Franklin', sans-serif;
   //font-family: 'Nunito', sans-serif;
   cursor: default;
+   -ms-touch-action: pan-y;
+    touch-action: pan-y;
 }
 
 h2 {
