@@ -1,4 +1,19 @@
-#map {
+.location {
   @include narrow;
-  height: 20rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  #map {
+    height: 20rem;
+    width: 70%;
+  }
+  .address {
+    p {
+      margin-top: .5rem;
+    }
+    .strong {
+      font-weight: 900;
+    }
+
+  }
 }

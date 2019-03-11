@@ -107,6 +107,7 @@ header {
   .fixed {
     position: fixed;
     transform: translateY(0);
+    z-index: 100;
     .logo {
       height: 3rem;
       width: 3rem;
