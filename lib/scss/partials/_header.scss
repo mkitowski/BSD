@@ -3,6 +3,8 @@ header {
   height: 105vh;
   overflow: hidden;
   color: $ligh2;
+  $barheight: 0.3rem;
+
   .bck {
     position: absolute;
     z-index: -1;
@@ -16,6 +18,7 @@ header {
     overflow: hidden;
     -webkit-animation: kenburns-top 30s ease-out infinite both;
     animation: kenburns-top 30s ease-out infinite both;
+
     .shadow {
       background: black;
       opacity: 0.4;
@@ -24,15 +27,16 @@ header {
       position: absolute;
     }
   }
+
   .top_bar {
-    -webkit-animation: swing-in-top-fwd 2s
-      cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    -webkit-animation: swing-in-top-fwd 2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     animation: swing-in-top-fwd 2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     width: 100vw;
     background-color: $bar;
     transform: translateY(6rem);
     text-align: center;
     padding: 1rem;
+
     .logo {
       text-align: center;
       background: url("../../pic/BSD.png") center no-repeat;
@@ -40,9 +44,31 @@ header {
       height: 12rem;
       transition: height 0.3s ease-out, width 0.3s ease-out;
     }
+
     nav {
       ul {
-        display: none;
+        transform: translateX(-100vw);
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        top: -96px;
+        left: 0;
+        list-style: none;
+        background: $darkc;
+        color: $ligh2;
+        padding-top: 96px;
+        font-family: "Nunito", sans-serif;
+        font-size: 1.4rem;
+        font-weight: 900;
+        cursor: pointer;
+        transition: transform .5s ease-out;
+
+
+        li {
+          margin-button: 1rem;
+          padding: 0.5rem;
+
+        }
       }
       .title {
         padding-bottom: 1rem;
@@ -50,8 +76,15 @@ header {
         color: $second;
         transition: opacity 0.3s ease-out, max-height 0.3s ease-out;
         margin: 0 auto;
+        text-align: center;
+      }
+      .clicked {
+        transform: translateX(0);
+        width: 100vw;
+        transition: transform .5s ease-in;
       }
     }
+
     .flag {
       opacity: 0.5;
       position: fixed;
@@ -61,6 +94,7 @@ header {
       height: 2rem;
       top: 1.5rem;
       right: 2rem;
+
       &:hover {
         cursor: pointer;
         opacity: 1;
@@ -72,7 +106,7 @@ header {
       align-items: center;
       transition: background-color 0.5s ease;
       .logo {
-      width: 12rem;
+        width: 12rem;
       }
       nav {
         text-align: left;
@@ -81,13 +115,16 @@ header {
         // margin: 0 auto;
 
         ul {
-          font-family: "Nunito", sans-serif;
+          transform: translateX(0);
+
+
           display: flex;
           justify-content: center;
-          list-style: none;
-          font-size: 1.4rem;
-          font-weight: 900;
-          cursor: pointer;
+          width: auto;
+          height: auto;
+          padding: 0;
+          background: none;
+          position: inherit;
           .active {
             color: $second;
             transform: scale(1.2);
@@ -95,13 +132,14 @@ header {
           li {
             margin-right: 1rem;
             transition: color 0.3s ease-out, transform 0.3s ease-out;
-            padding: 0.5rem;
+
             &:hover {
               color: $second;
               transform: scale(1.2);
               transition: color 0.3s ease-in, transform 0.3s ease-in;
             }
           }
+
         }
       }
 
@@ -119,24 +157,29 @@ header {
       }
     }
   }
+
   .fixed {
     position: fixed;
     transform: translateY(0);
     z-index: 100;
+
     .logo {
       height: 3rem;
-
       transition: height 0.3s ease-in, width 0.3s ease-in;
       @media (min-width: $mobileSize) {
         width: 3rem;
       }
     }
+
     .title {
       max-height: 0;
       line-height: 0;
       opacity: 0;
       transition: opacity 0.3s ease-in, max-height 0.3s ease-in;
+      text-align: center;
+
     }
+
     .flag {
       -webkit-transform: translateY(0);
       -moz-transform: translateY(0);
@@ -146,9 +189,11 @@ header {
       transition: transform 0.3s ease-in;
     }
   }
+
   .solid {
     background-color: $darkc;
   }
+
   .burger {
     position: fixed;
     top: 2rem;
@@ -157,17 +202,44 @@ header {
     background: $darkc;
     padding: 0.3rem 0.3rem 0 0.3rem;
     border-radius: 5px;
+
     .bar {
-      $barheight: 0.3rem;
       width: 2rem;
       height: $barheight;
       background: $second;
       margin-bottom: $barheight;
       border-radius: 5px;
+      transition: transform .5s linear;
     }
+
 
     @media (min-width: $mobileSize) {
       display: none;
+    }
+  }
+
+  .menuSelected {
+    .bar {
+      transition: transform .5s linear;
+
+      &:nth-child(1) {
+        margin-bottom: $barheight * 3;
+        transform: translate(6px, $barheight * 4) rotate(-45deg);
+        transform-origin: bottom left;
+        transition: transform .5s linear;
+
+      }
+
+      &:nth-child(2) {
+        display: none;
+      }
+
+      &:nth-child(3) {
+        transform: translateX(-6px) rotate(45deg);
+        transform-origin: bottom right;
+        transition: transform .5s linear;
+
+      }
     }
   }
 }
