@@ -45,12 +45,10 @@ header {
         display: none;
       }
       .title {
-        height: 4rem;
         padding-bottom: 1rem;
         font-size: 1.4rem;
         color: $second;
         transition: opacity 0.3s ease-out, max-height 0.3s ease-out;
-        width: 80%;
         margin: 0 auto;
       }
     }
