@@ -1,20 +1,31 @@
+.strong {
+  font-weight: 900;
+  font-size: 1.4rem;
+  text-align: center;
+}
 .location {
-  @include narrow;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
   #map {
     height: 20rem;
-    width: 70%;
+    width: 100%;
   }
   .address {
+    @include narrow;
     font-size: 1.4rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+    .addressSection {
+      width: 50%;
+      min-width: 300px;
+    }
+    a {
+      text-decoration: none;
+      color: $darkc;
+    }
     p {
-      margin-top: .5rem;
+      margin-top: 0.5rem;
     }
-    .strong {
-      font-weight: 900;
-    }
-
   }
 }

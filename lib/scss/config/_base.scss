@@ -1,17 +1,22 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  &:after, &:before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 }
 
 body {
   font-size: 16px;
   overflow-x: hidden;
-  font-family: 'Libre Franklin', sans-serif;
+  font-family: "Libre Franklin", sans-serif;
   //font-family: 'Nunito', sans-serif;
   cursor: default;
-   -ms-touch-action: pan-y;
-    touch-action: pan-y;
+  -ms-touch-action: pan-y;
+  touch-action: pan-y;
 }
 
 h2 {

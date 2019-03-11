@@ -6,7 +6,7 @@ header {
   .bck {
     position: absolute;
     z-index: -1;
-    width: 100%;
+    width: 100vw;
     height: 100%;
     background: no-repeat center center fixed;
     -webkit-background-size: cover;
@@ -18,91 +18,108 @@ header {
     animation: kenburns-top 30s ease-out infinite both;
     .shadow {
       background: black;
-      opacity: .4;
+      opacity: 0.4;
       width: 100%;
       height: 100%;
       position: absolute;
     }
   }
   .top_bar {
--webkit-animation: swing-in-top-fwd 2s cubic-bezier(0.175, 0.885, 0.320, 1.275) ;
-	        animation: swing-in-top-fwd 2s cubic-bezier(0.175, 0.885, 0.320, 1.275) ;
+    -webkit-animation: swing-in-top-fwd 2s
+      cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: swing-in-top-fwd 2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     width: 100vw;
     background-color: $bar;
     transform: translateY(6rem);
     text-align: center;
     padding: 1rem;
-    display: flex;
-    align-items: center;
-    transition: background-color .5s ease;
-
     .logo {
-      background: url("../../pic/BSD.png") no-repeat;
-      background-size: cover;
+      text-align: center;
+      background: url("../../pic/BSD.png") center no-repeat;
+      background-size: contain;
       height: 12rem;
-      width: 12rem;
-      transition: height .3s ease-out, width .3s ease-out;
+      transition: height 0.3s ease-out, width 0.3s ease-out;
     }
-
     nav {
-      text-align: left;
-      width: 80%;
-      height: 100%;
-      margin: 0 auto;
-
+      ul {
+        display: none;
+      }
       .title {
-        max-height: 2rem;
+        height: 4rem;
         padding-bottom: 1rem;
         font-size: 1.4rem;
         color: $second;
-        transition: opacity .3s ease-out, max-height .3s ease-out;
-      }
-
-      ul {
-        font-family: 'Nunito', sans-serif;
-        display: flex;
-        list-style: none;
-        font-size: 1.4rem;
-        font-weight: 900;
-        cursor: pointer;
-        .active {
-            color: $second;
-            transform: scale(1.2);
-          }
-        li {
-          margin-right: 1rem;
-          transition: color .3s ease-out, transform .3s ease-out;
-          padding: .5rem;
-          &:hover {
-            color: $second;
-            transform: scale(1.2);
-            transition: color .3s ease-in, transform .3s ease-in;
-          }
-
-        }
+        transition: opacity 0.3s ease-out, max-height 0.3s ease-out;
+        width: 80%;
+        margin: 0 auto;
       }
     }
-
     .flag {
-      opacity: .5;
-      position: relative;
-      -webkit-transform: translateY(-5rem);
-      -moz-transform: translateY(-5rem);
-      -ms-transform: translateY(-5rem);
-      -o-transform: translateY(-5rem);
-      transform: translateY(-5rem);
-      right: 2rem;
+      opacity: 0.5;
+      position: fixed;
       background: center center no-repeat;
       background-size: contain;
       width: 2rem;
       height: 2rem;
-      transition: transform .3s ease-in;
+      top: 1.5rem;
+      right: 2rem;
       &:hover {
         cursor: pointer;
         opacity: 1;
       }
     }
 
+    @media (min-width: $mobileSize) {
+      display: flex;
+      align-items: center;
+      transition: background-color 0.5s ease;
+      .logo {
+      width: 12rem;
+      }
+      nav {
+        text-align: left;
+        width: 90%;
+        height: 100%;
+        // margin: 0 auto;
+
+        ul {
+          font-family: "Nunito", sans-serif;
+          display: flex;
+          justify-content: center;
+          list-style: none;
+          font-size: 1.4rem;
+          font-weight: 900;
+          cursor: pointer;
+          .active {
+            color: $second;
+            transform: scale(1.2);
+          }
+          li {
+            margin-right: 1rem;
+            transition: color 0.3s ease-out, transform 0.3s ease-out;
+            padding: 0.5rem;
+            &:hover {
+              color: $second;
+              transform: scale(1.2);
+              transition: color 0.3s ease-in, transform 0.3s ease-in;
+            }
+          }
+        }
+      }
+
+      .flag {
+        position: relative;
+        -webkit-transform: translateY(-5rem);
+        -moz-transform: translateY(-5rem);
+        -ms-transform: translateY(-5rem);
+        -o-transform: translateY(-5rem);
+        transform: translateY(-5rem);
+        right: 2rem;
+        top: 0rem;
+
+        transition: transform 0.3s ease-in;
+      }
+    }
   }
   .fixed {
     position: fixed;
@@ -110,29 +127,49 @@ header {
     z-index: 100;
     .logo {
       height: 3rem;
-      width: 3rem;
-      transition: height .3s ease-in, width .3s ease-in;
+
+      transition: height 0.3s ease-in, width 0.3s ease-in;
+      @media (min-width: $mobileSize) {
+        width: 3rem;
+      }
     }
     .title {
       max-height: 0;
       line-height: 0;
       opacity: 0;
-      transition: opacity .3s ease-in, max-height .3s ease-in;
+      transition: opacity 0.3s ease-in, max-height 0.3s ease-in;
     }
-    .flag{
+    .flag {
       -webkit-transform: translateY(0);
       -moz-transform: translateY(0);
       -ms-transform: translateY(0);
       -o-transform: translateY(0);
       transform: translateY(0);
-      transition: transform .3s ease-in;
-
+      transition: transform 0.3s ease-in;
     }
   }
-
   .solid {
     background-color: $darkc;
   }
+  .burger {
+    position: fixed;
+    top: 2rem;
+    left: 2rem;
+    z-index: 500;
+    background: $darkc;
+    padding: 0.3rem 0.3rem 0 0.3rem;
+    border-radius: 5px;
+    .bar {
+      $barheight: 0.3rem;
+      width: 2rem;
+      height: $barheight;
+      background: $second;
+      margin-bottom: $barheight;
+      border-radius: 5px;
+    }
 
-
+    @media (min-width: $mobileSize) {
+      display: none;
+    }
+  }
 }
