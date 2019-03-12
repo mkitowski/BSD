@@ -49,14 +49,14 @@ header {
       ul {
         transform: translateX(-100vw);
         width: 100vw;
-        height: 100vh;
-        position: absolute;
+        height: 120vh;
+        position: fixed;
         top: -96px;
         left: 0;
         list-style: none;
         background: $darkc;
         color: $ligh2;
-        padding-top: 96px;
+        padding-top: 200px;
         font-family: "Nunito", sans-serif;
         font-size: 1.4rem;
         font-weight: 900;
@@ -204,12 +204,19 @@ header {
     border-radius: 5px;
 
     .bar {
+      opacity: 1;
       width: 2rem;
       height: $barheight;
       background: $second;
       margin-bottom: $barheight;
       border-radius: 5px;
-      transition: transform .5s linear;
+      transition: transform .5s linear, opacity .5s linear;
+      &:nth-child(1) {
+        transform-origin: bottom right;
+      }
+      &:nth-child(3) {
+        transform-origin: top right;
+      }
     }
 
 
@@ -223,20 +230,22 @@ header {
       transition: transform .5s linear;
 
       &:nth-child(1) {
-        margin-bottom: $barheight * 3;
-        transform: translate(6px, $barheight * 4) rotate(-45deg);
-        transform-origin: bottom left;
+        //margin-bottom: $barheight * 3;
+        transform: translateY(-2px) rotate(-45deg);
+        transform-origin: bottom right;
         transition: transform .5s linear;
 
       }
 
       &:nth-child(2) {
-        display: none;
+        opacity: 0;
+        transition: opacity .5s linear;
+
       }
 
       &:nth-child(3) {
-        transform: translateX(-6px) rotate(45deg);
-        transform-origin: bottom right;
+        transform: translateY(3px) rotate(45deg);
+        transform-origin: top right;
         transition: transform .5s linear;
 
       }
