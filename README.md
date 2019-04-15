@@ -1,6 +1,6 @@
 [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/mkitowski/BSD.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/mkitowski/BSD/context:javascript)
 
-![BSD](./pic/BSD.jpg)
+![BSD](./pic/bsd.jpg)
 
 
 # Building Services Design
