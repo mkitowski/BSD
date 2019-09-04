@@ -13,6 +13,6 @@ Company web page.
 
 
 ### See live project
- - [bsd-gda.pl](http://bsd-gda.pl)
+ - [https://mkitowski.github.io/BSD/](https://mkitowski.github.io/BSD/)
 
 
