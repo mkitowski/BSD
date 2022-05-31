@@ -12,7 +12,4 @@ Company web page.
 - Scss
 
 
-### See live project
- - [https://mkitowski.github.io/BSD/](https://mkitowski.github.io/BSD/)
-
 
